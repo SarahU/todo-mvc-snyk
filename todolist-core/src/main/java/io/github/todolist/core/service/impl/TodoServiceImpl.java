@@ -30,6 +30,8 @@ import io.github.todolist.core.service.api.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
@@ -41,6 +43,7 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 public class TodoServiceImpl implements TodoService {
+    private static final Logger logger = LogManager.getLogger("HelloWorld");
 
     @Autowired
     private TodoRepository todoRepository;
@@ -56,6 +59,7 @@ public class TodoServiceImpl implements TodoService {
      * {@inheritDoc}
      */
     public List<Todo> getTodoListByUser(final long userId) {
+        logger.info("User asked for to-do list");
         return todoRepository.getTodoListByUser(userId);
     }
 
