@@ -59,7 +59,7 @@ public class TodoServiceImpl implements TodoService {
      * {@inheritDoc}
      */
     public List<Todo> getTodoListByUser(final long userId) {
-        logger.info("User asked for to-do list");
+        logger.info("User ordered to-do list request");
         return todoRepository.getTodoListByUser(userId);
     }
 
@@ -67,6 +67,7 @@ public class TodoServiceImpl implements TodoService {
      * {@inheritDoc}
      */
     public List<Todo> searchTodoListByTitle(final long userId, final String title) {
+        logger.info("Title ordered to-do list request");
         return todoRepository.getTodoListByUserAndTitle(userId, title);
     }
 
